@@ -14,9 +14,9 @@ public sealed class MinimalEventCounterSource : EventSource
             DisplayUnits = "ms"
         };
 
-    public void Request(string url, float elapsedMilliseconds)
+    public void Request(string url, long elapsedMilliseconds)
     {
-        WriteEvent(1, url, elapsedMilliseconds);
+        WriteEvent(1, elapsedMilliseconds, url);
         _requestCounter?.WriteMetric(elapsedMilliseconds);
     }
 
